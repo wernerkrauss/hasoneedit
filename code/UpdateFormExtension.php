@@ -6,15 +6,17 @@ class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 		$fields = $form->Fields()->dataFields();
 		
 		foreach($fields as $name => $field) {
-			if(!strpos($name, ':')) {
-				// Also skip $name that starts with a :
+			$name = str_replace(':', sgn_hasoneedit_DataObjectExtension::separator, $name);
+			if(!strpos($name, sgn_hasoneedit_DataObjectExtension::separator)) {
+				// Also skip $name that starts with a separator
 				continue;
 			}
+			$field->setName($name);
 			if($field->Value()) {
 				// Skip fields that already have a value
 				continue;
 			}
-			list($hasone, $key) = explode(':', $name, 2);
+			list($hasone, $key) = explode(sgn_hasoneedit_DataObjectExtension::separator, $name, 2);
 			if($record->has_one($hasone)) {
 				$rel = $record->getComponent($hasone);
 				// Copied from loadDataFrom()

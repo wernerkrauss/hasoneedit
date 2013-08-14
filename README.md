@@ -12,9 +12,9 @@ This module has been tested on both 3.0.x-dev and 3.1.x-dev. There is no separat
 
 ## Usage
 
-To use this module, simply add a field to the CMS fields for your object in your `getCMSFields()` method. The name of the field should be `HasOneName:FieldName`.
+To use this module, simply add a field to the CMS fields for your object in your `getCMSFields()` method. The name of the field should be `HasOneName/FieldName`.
 
-For example, say you have a has_one called `Show` and that has_one has a field called `Title` you want to edit. You'd add the field `TextField::create('Show:Title', 'Show Title')`.
+For example, say you have a has_one called `Show` and that has_one has a field called `Title` you want to edit. You'd add the field `TextField::create('Show/Title', 'Show Title')`.
 
 ### Using with your own form
 
