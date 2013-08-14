@@ -1,16 +1,18 @@
 <?php
 
 class sgn_hasoneedit_DataObjectExtension extends DataExtension {
+	const separator = '/';
+
 	public function onBeforeWrite() {
 		$changed = $this->owner->getChangedFields();
 		$toWrite = array();
 		foreach($changed as $name => $value) {
-			if(!strpos($name, ':')) {
-				// Also skip $name that starts with a :
+			if(!strpos($name, self::separator)) {
+				// Also skip $name that starts with a separator
 				continue;
 			}
 			$value = $value['after'];
-			list($hasone, $key) = explode(':', $name, 2);
+			list($hasone, $key) = explode(self::separator, $name, 2);
 			if($this->owner->has_one($hasone)) {
 				$rel = $this->owner->getComponent($hasone);
 
