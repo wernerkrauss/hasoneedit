@@ -1,7 +1,7 @@
 <?php
 
 class sgn_hasoneedit_DataObjectExtension extends DataExtension {
-	const separator = '/';
+	const separator = '-_1_-';
 
 	public function onBeforeWrite() {
 		$changed = $this->owner->getChangedFields();
