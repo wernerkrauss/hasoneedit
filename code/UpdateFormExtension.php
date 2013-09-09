@@ -3,9 +3,6 @@
 class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 	public function updateEditForm(\Form $form) {
 		$record = $form->getRecord();
-		if(!$record) {
-			return;
-		}
 		$fields = $form->Fields()->dataFields();
 		
 		foreach($fields as $name => $field) {
@@ -15,6 +12,9 @@ class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 				continue;
 			}
 			$field->setName($name);
+			if(!$record) {
+				continue;
+			}
 			if($field->Value()) {
 				// Skip fields that already have a value
 				continue;
