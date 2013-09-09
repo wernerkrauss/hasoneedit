@@ -3,7 +3,7 @@
     "type": "silverstripe-module",
     "description": "Allows editing the fields of a has_one object directly in the CMS",
     "keywords": ["silverstripe", "has_one", "cms"],
-    "license": "http://svn.simon.geek.nz/hasoneedit/trunk/LICENSE",
+    "license": "WTFPL",
     "authors": [{
         "name": "Simon Welsh",
         "email": "simon@simon.geek.nz",
