@@ -6,7 +6,7 @@ class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 		$fields = $form->Fields()->dataFields();
 		
 		foreach($fields as $name => $field) {
-			$name = str_replace(':', sgn_hasoneedit_DataObjectExtension::separator, $name);
+			$name = str_replace([':', '/'], sgn_hasoneedit_DataObjectExtension::separator, $name);
 			if(!strpos($name, sgn_hasoneedit_DataObjectExtension::separator)) {
 				// Also skip $name that starts with a separator
 				continue;
