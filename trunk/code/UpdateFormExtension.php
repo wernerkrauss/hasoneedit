@@ -3,6 +3,9 @@
 class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 	public function updateEditForm(\Form $form) {
 		$record = $form->getRecord();
+		if(!$record) {
+			return;
+		}
 		$fields = $form->Fields()->dataFields();
 		
 		foreach($fields as $name => $field) {
