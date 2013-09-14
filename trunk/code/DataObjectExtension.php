@@ -11,13 +11,13 @@ class sgn_hasoneedit_DataObjectExtension extends DataExtension {
 				// Also skip $name that starts with a separator
 				continue;
 			}
-			$value = $value['after'];
+			$value = (string)$value['after'];
 			list($hasone, $key) = explode(self::separator, $name, 2);
 			if($this->owner->has_one($hasone)) {
 				$rel = $this->owner->getComponent($hasone);
 
 				// Get original:
-				$original = $rel->__get($key);
+				$original = (string)$rel->__get($key);
 				if($original !== $value) {
 					$rel->setCastedField($key, $value);
 					$toWrite[$hasone] = $rel;
