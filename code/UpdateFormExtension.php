@@ -20,7 +20,7 @@ class sgn_hasoneedit_UpdateFormExtension extends \Extension {
 				continue;
 			}
 			list($hasone, $key) = explode(sgn_hasoneedit_DataObjectExtension::separator, $name, 2);
-			if($record->has_one($hasone)) {
+			if($record->has_one($hasone) || $record->belongs_to($hasone)) {
 				$rel = $record->getComponent($hasone);
 				// Copied from loadDataFrom()
 				$exists = (
